@@ -1,0 +1,93 @@
+<template>
+
+    <lightning-card title="Vishnu Placement Portal" icon-name="standard:people">
+
+        <div class="slds-p-around_medium">
+
+            <h1 class="heading">
+                Welcome to Vishnu Placement Portal
+            </h1>
+
+            <br/>
+
+            <h2>Today's Date : {todayDate}</h2>
+
+            <br/>
+
+            <lightning-card title="Student Information">
+
+                <p>Student Name : {studentName}</p>
+
+                <p>Roll Number : {rollNumber}</p>
+
+                <p>Department : {department}</p>
+
+            </lightning-card>
+
+            <br/>
+
+            <lightning-button
+                label="Change Student Details"
+                onclick={changeStudent}
+                variant="brand">
+            </lightning-button>
+
+            <br/><br/>
+
+            <lightning-button
+                label="Show Welcome Message"
+                onclick={showWelcome}
+                variant="success">
+            </lightning-button>
+
+            <br/><br/>
+
+            <template if:true={displayMessage}>
+
+                <h2>{welcomeMessage}</h2>
+
+            </template>
+
+            <br/>
+
+            <lightning-card title="Application Status">
+
+                <p>Status : {status}</p>
+
+            </lightning-card>
+
+            <br/>
+
+            <lightning-button
+                label="Apply"
+                onclick={applyJob}
+                variant="brand">
+            </lightning-button>
+
+            <br/><br/>
+
+            <lightning-card title="Placement Dashboard">
+
+                <p>Welcome Student</p>
+
+                <p>Number of Companies : 25</p>
+
+                <p>Number of Jobs : 63</p>
+
+                <p>Applications Submitted : 5</p>
+
+            </lightning-card>
+
+            <br/>
+
+            <lightning-card title="Data Binding Demo">
+
+                <h2>Hello {studentName}</h2>
+
+            </lightning-card>
+
+        </div>
+
+    </lightning-card>
+
+</template>
