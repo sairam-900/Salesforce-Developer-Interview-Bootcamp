@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Parent Component">
+        <div class="slds-p-around_medium">
+
+            <p><strong>Record Id:</strong> {recordId}</p>
+
+            <c-child
+                record-id={recordId}
+                onbuttonclick={handleButtonClick}>
+            </c-child>
+
+            <br/>
+
+            <p class="slds-text-heading_small">
+                Message from Child:
+                <strong>{message}</strong>
+            </p>
+
+        </div>
+    </lightning-card>
+</template>
