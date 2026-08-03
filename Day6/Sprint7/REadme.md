@@ -63,7 +63,7 @@ The following debug log confirms that the student record was successfully retrie
 
 > **Execution Log**
 
-![Sprint 7 Debug Output](images/sprint7_debug_output.png)
+![Sprint 7 Debug Output](AA.png)
 
 **Observed Output**
 
