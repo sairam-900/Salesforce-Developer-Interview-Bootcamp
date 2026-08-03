@@ -156,7 +156,7 @@ This confirms that:
 
 ### Debug Output 2 – SOQL Query Verification
 
-![Sprint 12 SOQL Verification](D(2).png)
+![Sprint 12 SOQL Verification](D (2).png)
 
 The Developer Console was used to verify object records using SOQL queries before processing the business transaction.
 
