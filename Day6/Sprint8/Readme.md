@@ -83,7 +83,7 @@ The following execution log confirms that the student information and job eligib
 
 > **Execution Log**
 
-![Sprint 8 Debug Output](images/sprint8_debug_output.png)
+![Sprint 8 Debug Output](images/sprint8_debug.png)
 
 **Observed Output**
 
