@@ -96,7 +96,7 @@ The following execution log confirms that the duplicate validation and eligibili
 
 > **Execution Log**
 
-![Sprint 9 Debug Output](images/sprint9_debug_output.png)
+![Sprint 9 Debug Output](images/sprint9_Duplicates.png)
 
 **Observed Output**
 
