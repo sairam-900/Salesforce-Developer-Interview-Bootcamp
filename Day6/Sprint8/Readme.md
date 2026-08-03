@@ -77,7 +77,7 @@ System.debug(result);
 
 ---
 
-# 🐞 Debug Output
+#  Debug Output
 
 The following execution log confirms that the student information and job eligibility criteria were successfully retrieved and validated.
 
