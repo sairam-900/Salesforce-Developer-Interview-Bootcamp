@@ -128,7 +128,7 @@ System.debug(result);
 
 ---
 
-# 🐞 Debug Output
+#  Debug Output
 
 The following execution logs verify the final business transaction workflow.
 
