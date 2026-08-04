@@ -1,7 +1,10 @@
 trigger ApplicationTrigger on Application__c (before insert, after update) {
 
-    if (Trigger.isBefore && Trigger.isInsert) {
+    if (Trigger.isAfter && Trigger.isUpdate) {
 
-        ApplicationService.validateApplications(Trigger.new);
+        StatisticsService.updateStatistics(
+            Trigger.new,
+            Trigger.oldMap
+        );
 
     }
