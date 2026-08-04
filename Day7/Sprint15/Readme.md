@@ -1,6 +1,6 @@
 # Sprint 15 – Sending Notifications
 
-## 📌 Sprint Objective
+##  Sprint Objective
 
 The objective of Sprint 15 is to automatically notify students whenever important placement events occur.
 
@@ -10,7 +10,7 @@ This architecture keeps the Trigger clean, reusable, and easy to maintain.
 
 ---
 
-# 📖 User Story
+#  User Story
 
 **US-15 – Notify the Placement Office Whenever Important Placement Events Occur**
 
@@ -22,7 +22,7 @@ This architecture keeps the Trigger clean, reusable, and easy to maintain.
 
 ---
 
-# 🎯 Learning Outcomes
+#  Learning Outcomes
 
 After completing this sprint, I learned to
 
@@ -35,7 +35,7 @@ After completing this sprint, I learned to
 
 ---
 
-# 🏢 Business Requirement
+# Business Requirement
 
 Whenever an application's status changes,
 
@@ -55,7 +55,7 @@ NotificationService should prepare and send the notification.
 
 ---
 
-# 🏗️ Folder Structure
+# Folder Structure
 
 ```text
 force-app
@@ -70,7 +70,7 @@ force-app
 
 ---
 
-# ⚙️ Apex Trigger
+#  Apex Trigger
 
 ## ApplicationTrigger.trigger
 
@@ -110,7 +110,7 @@ trigger ApplicationTrigger on Application__c
 
 ---
 
-# ⚙️ NotificationService.cls
+#  NotificationService.cls
 
 ```apex
 public with sharing class NotificationService {
@@ -170,7 +170,7 @@ public with sharing class NotificationService {
 
 ---
 
-# 🔄 Execution Flow
+#  Execution Flow
 
 ```text
 Recruiter Updates Application Status
@@ -208,7 +208,7 @@ Debug Log / Notification Sent
 
 ---
 
-# 💻 Code Explanation
+#  Code Explanation
 
 ## Trigger
 
@@ -291,7 +291,7 @@ Notification: Offer Accepted Successfully
 
 ---
 
-# 🚀 Challenges Faced
+#  Challenges Faced
 
 - Understanding After Update Trigger.
 - Using Trigger.oldMap.
@@ -301,7 +301,7 @@ Notification: Offer Accepted Successfully
 
 ---
 
-# 📚 Key Learnings
+#  Key Learnings
 
 - Apex Trigger
 - After Update Trigger
@@ -315,7 +315,7 @@ Notification: Offer Accepted Successfully
 
 ---
 
-# 📝 Engineering Principle
+#  Engineering Principle
 
 > Components should know only what they need to know.
 
