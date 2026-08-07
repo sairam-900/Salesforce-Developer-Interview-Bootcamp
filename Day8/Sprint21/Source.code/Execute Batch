@@ -1,0 +1,4 @@
+PlacementCategoryBatch batch =
+    new PlacementCategoryBatch();
+
+Database.executeBatch(batch,200);
