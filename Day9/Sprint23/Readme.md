@@ -81,7 +81,7 @@ Your eligible opportunities will appear here.
 
 📸 Task 1 Output
 
-![Task 1 Output](screenshots/Task-1.png)
+![Task 1 Output](Task-1.png)
 
 
 
@@ -114,7 +114,7 @@ The Microsoft job was displayed successfully as a job card.
 
 
 
-![Task 1 Output](screenshots/Task-2.png)
+![Task 2 Output](Task-2.png)
 
 Result
 
@@ -167,7 +167,7 @@ Deadline: 18 August
 
 
 
-![Task 1 Output](screenshots/Task-3.png)
+![Task 3 Output](Task-3.png)
 
 Result
 
@@ -236,7 +236,7 @@ Multiple job cards were displayed successfully.
 
 
 
-![Task 1 Output](screenshots/Task-4.png)
+![Task 4 Output](Task-4.png)
 
 Result
 
@@ -298,7 +298,7 @@ with job information retrieved from Salesforce.
 
 
 
-![Task 1 Output](screenshots/Task-5.png)
+![Task 5 Output](Task-5.png)
 
 Result
 
@@ -351,7 +351,7 @@ Other records were also displayed in the final component.
 
 
 
-![Task 1 Output](screenshots/Task-6.png)
+![Task 6 Output](Task-6.png)
 
 Result
 
