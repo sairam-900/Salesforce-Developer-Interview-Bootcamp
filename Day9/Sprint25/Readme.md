@@ -156,7 +156,7 @@ Apply action available
 
 📸 Demo 1 Output
 
-![demo 1 Output](Screenshots/eligible jobs demo.png)
+![demo 1 Output](Screenshots/demo.png)
 
 🛠️ Demo 2 – Successful Application
 
