@@ -22,8 +22,6 @@ Build an interactive Apply workflow that allows students to apply for placement 
 ---
 
 ## 🔄 Development Flow
-
-```text
 Task 1
   ↓
 Apply Button & Event
