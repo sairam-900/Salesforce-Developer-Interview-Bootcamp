@@ -156,7 +156,7 @@ Apply action available
 
 📸 Demo 1 Output
 
-![demo 1 Output](screenshots/eligible jobs demo.png)
+![demo 1 Output](Screenshots/eligible jobs demo.png)
 
 🛠️ Demo 2 – Successful Application
 
@@ -261,7 +261,7 @@ UI reflects the successful application
 
 📸 Demo 2 Output
 
-![Demo 2 Output](screenshots/Success.png)
+![Demo 2 Output](Screenshots/Success.png)
 
 🛠️ Demo 3 – Failed Application
 
@@ -346,7 +346,7 @@ Application state remains safe
 
 📸 Demo 3 Output
 
-![Demo 3 Output](screenshots/failure.png)
+![Demo 3 Output](Screenshots/failure.png)
 
 📊 Sprint 25 Demo Summary
 
