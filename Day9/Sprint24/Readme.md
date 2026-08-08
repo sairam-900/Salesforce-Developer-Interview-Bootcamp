@@ -146,6 +146,7 @@ this.dispatchEvent(event);
     <c-job-card key={job.Id} job={job} onapply={handleApply}></c-job-card>
 </template>
 Output
+
 ![Task 1 Output](Screenshots/Task-4.png)
 
 
