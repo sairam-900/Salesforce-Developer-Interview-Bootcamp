@@ -1,0 +1,93 @@
+<template>
+
+    <lightning-card title="Eligible Jobs">
+
+        <div class="slds-p-around_medium">
+
+            <template if:true={jobs}>
+
+                <template for:each={jobs} for:item="job">
+
+                    <div
+                        key={job.Id}
+                        class="slds-box slds-m-bottom_medium"
+                    >
+
+                        <h2 class="slds-text-heading_medium">
+                            {job.Company__r.Name}
+                        </h2>
+
+                        <p>
+                            <strong>Job Title:</strong>
+                            {job.Name}
+                        </p>
+
+                        <p>
+                            <strong>Job ID:</strong>
+                            {job.Job_id__c}
+                        </p>
+
+                        <p>
+                            <strong>Role:</strong>
+                            {job.Role__c}
+                        </p>
+
+                        <p>
+                            <strong>Package:</strong>
+                            {job.Package__c}
+                        </p>
+
+                        <p>
+                            <strong>Minimum CGPA:</strong>
+                            {job.Minimum_CGPA__c}
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+                            {job.Job_Status__c}
+                        </p>
+
+                        <p>
+                            <strong>Last Date:</strong>
+                            {job.Last_Date__c}
+                        </p>
+
+                        <div class="slds-m-top_medium">
+
+                            <!-- View Details -->
+                            <lightning-button
+                                label="View Details"
+                                variant="neutral">
+                            </lightning-button>
+
+                            <!-- Apply Button -->
+                            <lightning-button
+                                class="slds-m-left_small"
+                                label={job.buttonLabel}
+                                variant="brand"
+                                data-job-id={job.Id}
+                                onclick={handleApply}
+                                disabled={job.isApplying}>
+                            </lightning-button>
+
+                        </div>
+
+                    </div>
+
+                </template>
+
+            </template>
+
+            <template if:true={error}>
+
+                <p class="slds-text-color_error">
+                    Unable to load jobs.
+                </p>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>
