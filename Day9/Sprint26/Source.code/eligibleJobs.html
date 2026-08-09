@@ -1,0 +1,80 @@
+<template>
+
+    <lightning-card title="Eligible Jobs">
+
+        <div class="slds-p-around_medium">
+
+            <!-- Loading -->
+            <template if:true={isLoading}>
+
+                <lightning-spinner
+                    alternative-text="Loading eligible jobs">
+                </lightning-spinner>
+
+            </template>
+
+
+            <!-- Error -->
+            <template if:true={error}>
+
+                <div class="slds-text-color_error slds-p-around_medium">
+
+                    Unable to load eligible jobs.
+
+                </div>
+
+            </template>
+
+
+            <!-- Job List -->
+            <template if:false={isLoading}>
+
+                <template if:true={jobs.length}>
+
+                    <div class="slds-grid slds-wrap">
+
+                        <template
+                            for:each={jobs}
+                            for:item="job">
+
+                            <div
+                                key={job.Id}
+                                class="slds-col
+                                       slds-size_1-of-1
+                                       slds-medium-size_1-of-2
+                                       slds-large-size_1-of-3
+                                       slds-p-around_small">
+
+                                <c-job-card
+                                    job={job}
+                                    onapply={handleApply}>
+                                </c-job-card>
+
+                            </div>
+
+                        </template>
+
+                    </div>
+
+                </template>
+
+
+                <!-- Empty -->
+                <template if:false={jobs.length}>
+
+                    <div class="slds-text-align_center
+                                slds-p-around_large">
+
+                        No eligible jobs available.
+
+                    </div>
+
+                </template>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>
