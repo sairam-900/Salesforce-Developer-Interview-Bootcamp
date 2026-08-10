@@ -1,4 +1,5 @@
-Sprint 28 -- Build the Student Profile Form
+SPRINT 28
+-- Build the Student Profile Form
 
 Sprint Overview
 
