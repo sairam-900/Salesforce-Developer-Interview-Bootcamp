@@ -367,12 +367,12 @@ The dashboard screenshot demonstrates the Eligible Jobs interface andJob Card co
 
 View Details Success Output
 
-![Success Output](Screenshots/Successful.png)
+![Success Output](Successful.png)
 
 
 Apply Success Output
 
-![ViewDetails Output](Screenshots/ViewDetails.png)
+![ViewDetails Output](ViewDetails.png)
 
 
 
