@@ -1,0 +1,141 @@
+<template>
+
+    <lightning-card
+        title="Student Profile"
+        icon-name="standard:contact">
+
+        <div class="slds-p-around_medium">
+
+
+            <!-- LOADING -->
+
+            <template if:true={isLoading}>
+
+                <div class="slds-is-relative slds-p-around_medium">
+
+                    <lightning-spinner
+                        alternative-text="Loading profile">
+                    </lightning-spinner>
+
+                    <p class="slds-text-align_center">
+                        Loading your profile...
+                    </p>
+
+                </div>
+
+            </template>
+
+
+            <template if:false={isLoading}>
+
+
+                <!-- PROFILE FORM -->
+
+                <lightning-record-edit-form
+                    record-id={recordId}
+                    object-api-name="Student__c"
+                    onsubmit={handleSubmit}
+                    onsuccess={handleSuccess}
+                    onerror={handleError}>
+
+                    <lightning-messages>
+                    </lightning-messages>
+
+
+                    <lightning-input-field
+                        field-name="Name">
+                    </lightning-input-field>
+
+
+                    <lightning-input-field
+                        field-name="Email__c"
+                        required>
+                    </lightning-input-field>
+
+
+                    <lightning-input-field
+                        field-name="Phone__c"
+                        required>
+                    </lightning-input-field>
+
+
+                    <lightning-input-field
+                        field-name="CGPA__c"
+                        required>
+                    </lightning-input-field>
+
+
+                    <lightning-input-field
+                        field-name="Branch__c"
+                        required>
+                    </lightning-input-field>
+
+
+                    <div class="slds-m-top_medium">
+
+                        <lightning-button
+                            type="submit"
+                            label="Save Changes"
+                            variant="brand"
+                            disabled={isSaving}>
+                        </lightning-button>
+
+                    </div>
+
+                </lightning-record-edit-form>
+
+
+                <!-- SUCCESS -->
+
+                <template if:true={showSuccess}>
+
+                    <div
+                        class="slds-notify
+                               slds-notify_alert
+                               slds-theme_success
+                               slds-m-top_medium"
+                        role="alert">
+
+                        <span class="slds-m-right_small">
+                            ✓
+                        </span>
+
+                        <span>
+                            Profile updated successfully.
+                        </span>
+
+                    </div>
+
+                </template>
+
+
+                <!-- ERROR -->
+
+                <template if:true={showError}>
+
+                    <div
+                        class="slds-notify
+                               slds-notify_alert
+                               slds-theme_error
+                               slds-m-top_medium"
+                        role="alert">
+
+                        <span class="slds-m-right_small">
+                            ⚠
+                        </span>
+
+                        <span>
+                            {errorMessage}
+                        </span>
+
+                    </div>
+
+                </template>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>
