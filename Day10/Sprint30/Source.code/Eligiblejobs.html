@@ -1,0 +1,352 @@
+<template>
+
+    <!-- ================================= -->
+    <!-- STUDENT PROFILE FORM -->
+    <!-- ================================= -->
+
+    <lightning-card
+        title="Student Profile"
+        icon-name="standard:contact">
+
+        <div class="slds-p-around_medium">
+
+            <!-- Student Name -->
+
+            <lightning-input
+                label="Student Name"
+                value={studentName}
+                placeholder="Enter Student Name"
+                required
+                onchange={handleNameChange}>
+            </lightning-input>
+
+
+            <!-- Student CGPA -->
+
+            <lightning-input
+                class="slds-m-top_medium"
+                type="number"
+                label="Student CGPA"
+                value={studentCGPA}
+                min="0"
+                max="10"
+                step="0.01"
+                required
+                onchange={handleCGPAChange}>
+            </lightning-input>
+
+
+            <!-- Skills -->
+
+            <lightning-textarea
+                class="slds-m-top_medium"
+                label="Skills"
+                value={skills}
+                placeholder="HTML,CSS,JS"
+                onchange={handleSkillsChange}>
+            </lightning-textarea>
+
+
+            <!-- Preferred Location -->
+
+            <lightning-combobox
+                class="slds-m-top_medium"
+                label="Preferred Location"
+                value={preferredLocation}
+                placeholder="Select Preferred Location"
+                options={locationOptions}
+                onchange={handleLocationChange}>
+            </lightning-combobox>
+
+
+            <!-- Graduation Year -->
+
+            <lightning-input
+                class="slds-m-top_medium"
+                type="number"
+                label="Graduation Year"
+                value={graduationYear}
+                placeholder="2027"
+                onchange={handleGraduationYearChange}>
+            </lightning-input>
+
+
+            <!-- Backlogs -->
+
+            <lightning-input
+                class="slds-m-top_medium"
+                type="number"
+                label="Backlogs"
+                value={backlogs}
+                min="0"
+                onchange={handleBacklogsChange}>
+            </lightning-input>
+
+
+            <!-- Save Profile -->
+
+            <div class="slds-m-top_medium">
+
+                <lightning-button
+                    label="Save Profile"
+                    variant="brand"
+                    onclick={handleSaveProfile}>
+                </lightning-button>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+
+    <!-- ================================= -->
+    <!-- ELIGIBLE JOBS -->
+    <!-- ================================= -->
+
+    <template if:true={profileSaved}>
+
+        <div class="slds-m-top_medium">
+
+            <lightning-card
+                title="Eligible Jobs"
+                icon-name="standard:job_position">
+
+                <div class="slds-p-around_medium">
+
+
+                    <!-- LOADING -->
+
+                    <template if:true={isLoading}>
+
+                        <div class="slds-is-relative">
+
+                            <lightning-spinner
+                                alternative-text="Loading Eligible Jobs">
+                            </lightning-spinner>
+
+                        </div>
+
+                    </template>
+
+
+                    <!-- ERROR -->
+
+                    <template if:true={errorMessage}>
+
+                        <div
+                            class="slds-notify
+                                   slds-notify_alert
+                                   slds-theme_error">
+
+                            {errorMessage}
+
+                        </div>
+
+                    </template>
+
+
+                    <!-- ELIGIBLE JOBS -->
+
+                    <template if:false={isLoading}>
+
+                        <template if:true={jobs.length}>
+
+                            <template
+                                for:each={jobs}
+                                for:item="job">
+
+                                <c-job-card
+                                    key={job.Id}
+                                    job={job}
+                                    onviewdetails={handleViewDetails}
+                                    onapply={handleApply}>
+                                </c-job-card>
+
+                            </template>
+
+                        </template>
+
+
+                        <!-- NO ELIGIBLE JOBS -->
+
+                        <template if:false={jobs.length}>
+
+                            <template if:false={errorMessage}>
+
+                                <div
+                                    class="slds-box
+                                           slds-text-align_center
+                                           slds-p-around_x-large">
+
+                                    <lightning-icon
+                                        icon-name="utility:info"
+                                        size="medium"
+                                        alternative-text="No Eligible Jobs">
+                                    </lightning-icon>
+
+
+                                    <h2
+                                        class="slds-text-heading_medium
+                                               slds-m-top_medium">
+
+                                        No Eligible Jobs
+
+                                    </h2>
+
+
+                                    <p
+                                        class="slds-m-top_small">
+
+                                        No eligible opportunities are
+                                        available for your current
+                                        eligibility criteria.
+
+                                    </p>
+
+                                </div>
+
+                            </template>
+
+                        </template>
+
+                    </template>
+
+                </div>
+
+            </lightning-card>
+
+        </div>
+
+    </template>
+
+
+    <!-- ================================= -->
+    <!-- JOB DETAILS MODAL -->
+    <!-- ================================= -->
+
+    <template if:true={showDetails}>
+
+        <section
+            role="dialog"
+            tabindex="-1"
+            aria-modal="true"
+            class="slds-modal slds-fade-in-open">
+
+            <div class="slds-modal__container">
+
+
+                <!-- HEADER -->
+
+                <header class="slds-modal__header">
+
+                    <h2
+                        class="slds-text-heading_medium">
+
+                        Job Details
+
+                    </h2>
+
+                </header>
+
+
+                <!-- CONTENT -->
+
+                <div
+                    class="slds-modal__content
+                           slds-p-around_medium">
+
+
+                    <p>
+                        <strong>Job ID:</strong>
+                        {selectedJob.Job_id__c}
+                    </p>
+
+
+                    <p>
+                        <strong>Job Title:</strong>
+                        {selectedJob.Name}
+                    </p>
+
+
+                    <p>
+                        <strong>Company:</strong>
+                        {selectedJob.Company__c}
+                    </p>
+
+
+                    <p>
+                        <strong>Role:</strong>
+                        {selectedJob.Role__c}
+                    </p>
+
+
+                    <p>
+                        <strong>Package:</strong>
+                        {selectedJob.Package__c}
+                    </p>
+
+
+                    <p>
+                        <strong>Minimum CGPA:</strong>
+                        {selectedJob.Minimum_CGPA__c}
+                    </p>
+
+
+                    <p>
+                        <strong>Status:</strong>
+                        {selectedJob.Job_Status__c}
+                    </p>
+
+
+                    <p>
+                        <strong>Last Date:</strong>
+
+                        <template if:true={selectedJob.Last_Date__c}>
+
+                            <lightning-formatted-date-time
+                                value={selectedJob.Last_Date__c}
+                                year="numeric"
+                                month="long"
+                                day="2-digit">
+                            </lightning-formatted-date-time>
+
+                        </template>
+
+                        <template if:false={selectedJob.Last_Date__c}>
+
+                            Not Provided
+
+                        </template>
+
+                    </p>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <footer class="slds-modal__footer">
+
+                    <lightning-button
+                        label="Close"
+                        onclick={handleCloseDetails}>
+                    </lightning-button>
+
+                </footer>
+
+            </div>
+
+        </section>
+
+
+        <!-- BACKDROP -->
+
+        <div
+            class="slds-backdrop
+                   slds-backdrop_open">
+        </div>
+
+    </template>
+
+</template>
