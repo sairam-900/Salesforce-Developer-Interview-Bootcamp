@@ -1,0 +1,137 @@
+<template>
+
+    <lightning-card
+        title="Accounts"
+        icon-name="standard:account">
+
+        <div class="slds-p-around_medium">
+
+            <!-- Loading -->
+
+            <template if:true={isLoading}>
+
+                <div class="slds-is-relative slds-p-around_medium">
+
+                    <lightning-spinner
+                        alternative-text="Loading Accounts">
+                    </lightning-spinner>
+
+                    <p class="slds-text-align_center">
+                        Loading Accounts...
+                    </p>
+
+                </div>
+
+            </template>
+
+
+            <!-- Error -->
+
+            <template if:true={errorMessage}>
+
+                <div
+                    class="slds-notify
+                           slds-notify_alert
+                           slds-theme_error"
+                    role="alert">
+
+                    ⚠ {errorMessage}
+
+                </div>
+
+            </template>
+
+
+            <!-- Account List -->
+
+            <template if:false={isLoading}>
+
+                <template if:true={accounts.length}>
+
+                    <template
+                        for:each={accounts}
+                        for:item="account">
+
+                        <div
+                            key={account.Id}
+                            class="slds-box
+                                   slds-m-bottom_small">
+
+                            <h2
+                                class="slds-text-heading_medium">
+
+                                {account.Name}
+
+                            </h2>
+
+                            <p>
+                                Industry:
+                                {account.Industry}
+                            </p>
+
+                            <p>
+                                Phone:
+                                {account.Phone}
+                            </p>
+
+                            <div class="slds-m-top_small">
+
+                                <lightning-button
+                                    label="View Contacts"
+                                    variant="brand"
+                                    data-id={account.Id}
+                                    data-name={account.Name}
+                                    onclick={handleAccountSelect}>
+                                </lightning-button>
+
+                            </div>
+
+                        </div>
+
+                    </template>
+
+                </template>
+
+
+                <!-- Empty State -->
+
+                <template if:false={accounts.length}>
+
+                    <template if:false={errorMessage}>
+
+                        <div class="slds-box">
+
+                            <p>
+                                No Accounts found.
+                            </p>
+
+                        </div>
+
+                    </template>
+
+                </template>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+
+    <!-- Child Component -->
+
+    <template if:true={selectedAccountId}>
+
+        <div class="slds-m-top_medium">
+
+            <c-contact-list
+                account-id={selectedAccountId}
+                account-name={selectedAccountName}
+                oncontactselected={handleContactSelected}>
+            </c-contact-list>
+
+        </div>
+
+    </template>
+
+</template>

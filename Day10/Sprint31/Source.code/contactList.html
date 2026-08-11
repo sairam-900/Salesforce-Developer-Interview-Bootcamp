@@ -1,0 +1,139 @@
+<template>
+
+    <lightning-card
+        title="Contacts"
+        icon-name="standard:contact">
+
+        <div class="slds-p-around_medium">
+
+            <template if:true={accountName}>
+
+                <p class="slds-m-bottom_medium">
+
+                    <strong>
+                        Account:
+                    </strong>
+
+                    {accountName}
+
+                </p>
+
+            </template>
+
+
+            <!-- Loading -->
+
+            <template if:true={isLoading}>
+
+                <div class="slds-is-relative">
+
+                    <lightning-spinner
+                        alternative-text="Loading Contacts">
+                    </lightning-spinner>
+
+                    <p>
+                        Loading Contacts...
+                    </p>
+
+                </div>
+
+            </template>
+
+
+            <!-- Error -->
+
+            <template if:true={errorMessage}>
+
+                <div
+                    class="slds-notify
+                           slds-notify_alert
+                           slds-theme_error"
+                    role="alert">
+
+                    ⚠ {errorMessage}
+
+                </div>
+
+            </template>
+
+
+            <!-- Contacts -->
+
+            <template if:false={isLoading}>
+
+                <template if:true={contacts.length}>
+
+                    <template
+                        for:each={contacts}
+                        for:item="contact">
+
+                        <div
+                            key={contact.Id}
+                            class="slds-box
+                                   slds-m-bottom_small">
+
+                            <h2
+                                class="slds-text-heading_small">
+
+                                {contact.FirstName}
+                                {contact.LastName}
+
+                            </h2>
+
+                            <p>
+                                Title:
+                                {contact.Title}
+                            </p>
+
+                            <p>
+                                Email:
+                                {contact.Email}
+                            </p>
+
+                            <p>
+                                Phone:
+                                {contact.Phone}
+                            </p>
+
+                            <div class="slds-m-top_small">
+
+                                <lightning-button
+                                    label="Select Contact"
+                                    data-id={contact.Id}
+                                    onclick={handleContactClick}>
+                                </lightning-button>
+
+                            </div>
+
+                        </div>
+
+                    </template>
+
+                </template>
+
+
+                <!-- Empty -->
+
+                <template if:false={contacts.length}>
+
+                    <template if:false={errorMessage}>
+
+                        <div class="slds-box">
+
+                            <p>
+                                No Contacts found for this Account.
+                            </p>
+
+                        </div>
+
+                    </template>
+
+                </template>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>

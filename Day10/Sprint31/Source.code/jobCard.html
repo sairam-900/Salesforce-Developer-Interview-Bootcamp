@@ -1,0 +1,155 @@
+<template>
+
+    <div class="slds-box slds-m-bottom_medium">
+
+        <!-- JOB TITLE -->
+
+        <h2 class="slds-text-heading_medium">
+
+            {job.Name}
+
+        </h2>
+
+
+        <!-- JOB ID -->
+
+        <p>
+            <strong>Job ID:</strong>
+
+            <template if:true={job.Job_id__c}>
+                {job.Job_id__c}
+            </template>
+
+            <template if:false={job.Job_id__c}>
+                Not Available
+            </template>
+
+        </p>
+
+
+        <!-- COMPANY -->
+
+        <p>
+            <strong>Company:</strong>
+
+            <template if:true={job.Company__c}>
+                {job.Company__c}
+            </template>
+
+            <template if:false={job.Company__c}>
+                Not Provided
+            </template>
+
+        </p>
+
+
+        <!-- ROLE -->
+
+        <p>
+            <strong>Role:</strong>
+
+            <template if:true={job.Role__c}>
+                {job.Role__c}
+            </template>
+
+            <template if:false={job.Role__c}>
+                Not Provided
+            </template>
+
+        </p>
+
+
+        <!-- PACKAGE -->
+
+        <p>
+            <strong>Package:</strong>
+
+            <template if:true={job.Package__c}>
+                {job.Package__c}
+            </template>
+
+            <template if:false={job.Package__c}>
+                Not Provided
+            </template>
+
+        </p>
+
+
+        <!-- MINIMUM CGPA -->
+
+        <p>
+            <strong>Minimum CGPA:</strong>
+
+            <template if:true={job.Minimum_CGPA__c}>
+                {job.Minimum_CGPA__c}
+            </template>
+
+            <template if:false={job.Minimum_CGPA__c}>
+                Not Provided
+            </template>
+
+        </p>
+
+
+        <!-- STATUS -->
+
+        <p>
+            <strong>Status:</strong>
+
+            <template if:true={job.Job_Status__c}>
+                {job.Job_Status__c}
+            </template>
+
+            <template if:false={job.Job_Status__c}>
+                Not Provided
+            </template>
+
+        </p>
+
+
+        <!-- LAST DATE -->
+
+        <p>
+            <strong>Last Date:</strong>
+
+            <template if:true={job.Last_Date__c}>
+
+                <lightning-formatted-date-time
+                    value={job.Last_Date__c}
+                    year="numeric"
+                    month="long"
+                    day="2-digit">
+                </lightning-formatted-date-time>
+
+            </template>
+
+            <template if:false={job.Last_Date__c}>
+                Not Provided
+            </template>
+
+        </p>
+
+
+        <!-- BUTTONS -->
+
+        <div class="slds-m-top_medium">
+
+            <lightning-button
+                label="View Details"
+                variant="neutral"
+                onclick={handleViewDetails}>
+            </lightning-button>
+
+
+            <lightning-button
+                class="slds-m-left_small"
+                label="Apply"
+                variant="brand"
+                onclick={handleApply}>
+            </lightning-button>
+
+        </div>
+
+    </div>
+
+</template>
