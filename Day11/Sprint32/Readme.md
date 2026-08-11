@@ -240,7 +240,7 @@ Integration Status = SentExternal Candidate Id = EXT10045Last Integration Attemp
 
 Successful Integration Output
 
-![Successful Integration](Screenshots/Successfulintegration.png)
+![Successful Integration](Screenshots/successfulintegration.png)
 
 Expected Output
 
@@ -254,7 +254,7 @@ Integration Error(blank)
 
 Debug Logs Output
 
-![Debug Logs](Screenshots/debugLogs.png)
+![Debug Logs](Screenshots/debugLog.png)
 
 The Debug Log should show information similar to:
 
