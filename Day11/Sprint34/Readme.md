@@ -684,7 +684,7 @@ Screenshot References
 
 ![Application Successful](Screenshots/ApplicationSuccessful.png)
 
-![Apex Jobs](Screenshots/Apexjobs.png)
+![Apex Jobs](Screenshots/ApexJobs.png)
 
 ![Debug Logs Output](Screenshots/Debuglogsoutput.png)
 
