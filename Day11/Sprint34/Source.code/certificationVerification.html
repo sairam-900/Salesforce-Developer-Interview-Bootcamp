@@ -1,0 +1,95 @@
+<template>
+
+    <lightning-card
+        title="Certification Verification"
+        icon-name="standard:approval"
+    >
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input
+                label="Certification Number"
+                value={certificationNumber}
+                onchange={handleChange}
+                placeholder="Enter certification number"
+            >
+            </lightning-input>
+
+            <div class="slds-m-top_medium">
+
+                <lightning-button
+                    variant="brand"
+                    label="Verify Certification"
+                    onclick={verifyCertification}
+                    disabled={isLoading}
+                >
+                </lightning-button>
+
+            </div>
+
+            <!-- Loading -->
+            <template if:true={isLoading}>
+                <div class="slds-m-top_medium">
+                    <lightning-spinner
+                        alternative-text="Verifying"
+                        size="small">
+                    </lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Success -->
+            <template if:true={result}>
+
+                <div class="slds-box slds-theme_success slds-m-top_medium">
+
+                    <h2 class="slds-text-heading_small">
+                        ✓ Certification Verified
+                    </h2>
+
+                    <div class="slds-m-top_medium">
+
+                        <p>
+                            <strong>Certification Number:</strong>
+                            {result.certificationNumber}
+                        </p>
+
+                        <p>
+                            <strong>Certification:</strong>
+                            {result.certification}
+                        </p>
+
+                        <p>
+                            <strong>Student:</strong>
+                            {result.student}
+                        </p>
+
+                    </div>
+
+                    <div class="slds-m-top_medium">
+                        Certification verified successfully
+                    </div>
+
+                </div>
+
+            </template>
+
+            <!-- Error -->
+            <template if:true={errorMessage}>
+
+                <div class="slds-box slds-theme_error slds-m-top_medium">
+
+                    <strong>Verification Failed</strong>
+
+                    <p class="slds-m-top_small">
+                        {errorMessage}
+                    </p>
+
+                </div>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>
